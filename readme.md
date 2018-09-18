@@ -1,5 +1,4 @@
-Slack Emoji Analysis
-=
+# Slack Emoji Analysis
 
 Parses slack messages in all public channels and compiles a list of all emojis used in
 - messages
@@ -9,12 +8,20 @@ Parses slack messages in all public channels and compiles a list of all emojis u
 
 Counters will be printed to command line or additionally saved to a csv file.
 
-Preparation
--
+## Preparation
+
+Download the files or clone the repository.
+
+### Install requirements 
+run `pip install -r requirements.txt`
+
+### Create slack app
 
 [Create an app](https://api.slack.com/apps) in your slack workspace. The app needs the following permission scopes:
 - `channels:read`
 - `channels:history`
+
+### Set token as environment variable
 
 Get the app's `OAuth Access Token` from the app's management page.
 To get the provided example running register the token as an environment variable called `SLACK_TOKEN`.
