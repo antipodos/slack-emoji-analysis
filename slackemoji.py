@@ -79,6 +79,9 @@ class SlackEmoji():
             self.add_emoji_to_list(m.group(1))
 
     def add_emoji_to_list(self, emoji, count=1):
+        if "::" in emoji:
+            emoji = emoji[0: emoji.find("::")]
+
         if emoji in self.found_emojis:
             self.found_emojis[emoji] += count
         else:
