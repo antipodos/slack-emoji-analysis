@@ -17,7 +17,8 @@ class SlackEmoji():
         cursor = None
         while cursor != "":
             r = self.slackclient.api_call(method, limit=self.call_limit, cursor=cursor, **kwargs)
-            ret.extend(r[response_objects_name])
+            if response_objects_name in r:
+                ret.extend(r[response_objects_name])
 
             if "response_metadata" in r:
                 cursor = r["response_metadata"]["next_cursor"]
