@@ -58,7 +58,8 @@ class SlackEmoji():
                 if "reactions" in message:
                     self.parse_reactions(message["reactions"])
 
-                self.parse_reply_to_message(channel_id, message["ts"])
+                if "reply_count" in message and message["reply_count"] > 0:
+                    self.parse_reply_to_message(channel_id, message["ts"])
 
     def parse_reply_to_message(self, channel_id, message_id):
         for reply in self.get_replies(channel_id, message_id):
